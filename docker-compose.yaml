@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    restart: unless-stopped
+    environment:
+      - 'POSTGRES_DB=movie_play_db'
+      - 'POSTGRES_PASSWORD=ancu-98.secret.movie'
+      - 'POSTGRES_USER=ancu-98'
+    ports:
+      - '5433:5432'   # Puerto externo: 5433, puerto interno: 5432
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
